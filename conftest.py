@@ -30,6 +30,7 @@ def driver_chrome():
 @pytest.fixture
 def driver_edge():
     options = EdgeOptions()
+    options.page_load_strategy = "eager"
 
     if os.getenv("CI") == "true":
         options.add_argument("--headless")
