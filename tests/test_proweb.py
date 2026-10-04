@@ -9,6 +9,7 @@ from pages.coworking_page import CoworkingPage
 
 # Browser_Chrome
 def test_my_proweb_chrome(driver_chrome):
+    # основной позитивный сценарий
     driver_chrome.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
     login_page = LoginPage(driver_chrome)
     login_page.change_lang_ru()
@@ -111,7 +112,8 @@ def test_my_proweb_chrome(driver_chrome):
 
 # Test_Invalid_Chrome
 # Invalid_Login
-def test_my_proweb_chrome(driver_chrome):
+def test_invalid_login_chrome(driver_chrome):
+    # неправильный логин
      driver_chrome.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
      login_page = LoginPage(driver_chrome)
      login_page.change_lang_ru()
@@ -124,7 +126,7 @@ def test_my_proweb_chrome(driver_chrome):
 
 # Test_Invalid_Chrome
 # Invalid_Password
-def test_my_proweb_chrome(driver_chrome):
+def test_invalid_password_chrome(driver_chrome):
      driver_chrome.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
      login_page = LoginPage(driver_chrome)
      login_page.change_lang_ru()
@@ -141,6 +143,7 @@ def test_my_proweb_chrome(driver_chrome):
 
 # Browser_Edge
 def test_my_proweb_edge(driver_edge):
+    # основной сценарий
     driver_edge.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
     login_page = LoginPage(driver_edge)
     login_page.change_lang_ru()
@@ -241,7 +244,7 @@ def test_my_proweb_edge(driver_edge):
 
 # Test_Invalid_Edge
 # Invalid_Login
-def test_my_proweb_edge(driver_edge):
+def test_invalid_login_edge(driver_edge):
     driver_edge.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
     login_page = LoginPage(driver_edge)
     login_page.change_lang_ru()
@@ -254,7 +257,7 @@ def test_my_proweb_edge(driver_edge):
 
 # Test_Invalid_Edge
 # Invalid_Password
-def test_my_proweb_edge(driver_edge):
+def test_invalid_password_edge(driver_edge):
     driver_edge.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
     login_page = LoginPage(driver_edge)
     login_page.change_lang_ru()
@@ -271,6 +274,7 @@ def test_my_proweb_edge(driver_edge):
 
 # Browser_Firefox
 def test_my_proweb_firefox(driver_firefox):
+    # основной сценарий
     driver_firefox.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
     login_page = LoginPage(driver_firefox)
     login_page.change_lang_ru()
@@ -371,7 +375,7 @@ def test_my_proweb_firefox(driver_firefox):
 
 # Test_Invalid_Firefox
 # Invalid_Login
-def test_my_proweb_firefox(driver_firefox):
+def test_invalid_login_firefox(driver_firefox):
     driver_firefox.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
     login_page = LoginPage(driver_firefox)
     login_page.change_lang_ru()
@@ -383,7 +387,7 @@ def test_my_proweb_firefox(driver_firefox):
 
 # Test_Invalid_Firefox
 # Invalid_Password
-def test_my_proweb_firefox(driver_firefox):
+def test_invalid_password_firefox(driver_firefox):
     driver_firefox.get("https://my.proweb.uz/log-in?q=/poll/5/relation/18160")
     login_page = LoginPage(driver_firefox)
     login_page.change_lang_ru()
