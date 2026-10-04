@@ -9,9 +9,14 @@ class LessonPage:
     def __init__(self, driver):
         self.driver = driver
 
+        # self.home = (
+        #     By.CSS_SELECTOR,
+        #     "#app > div > div.layout > div > div > div > ul > li:nth-child(1)"
+        # )
+
         self.home = (
-            By.CSS_SELECTOR,
-            "#app > div > div.layout > div > div > div > ul > li:nth-child(1)"
+            By.XPATH,
+            "//li[contains(normalize-space(.), 'Главная')]"
         )
 
         self.my_groups = (
