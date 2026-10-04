@@ -101,8 +101,10 @@ def test_my_proweb_chrome(driver_chrome):
     coworking_page.click_confirm_place()
     time.sleep(3)
     coworking_page.click_final_book()
-    time.sleep(3)
+    time.sleep(10)
     coworking_page.cancel_booking()
+    time.sleep(3)
+    coworking_page.confirm_cancel_booking()
     time.sleep(3)
 
 
@@ -238,8 +240,10 @@ def test_my_proweb_edge(driver_edge):
     coworking_page.click_confirm_place()
     time.sleep(3)
     coworking_page.click_final_book()
-    time.sleep(3)
+    time.sleep(10)
     coworking_page.cancel_booking()
+    time.sleep(3)
+    coworking_page.confirm_cancel_booking()
     time.sleep(3)
 
     main_page = MainPage(driver_edge)
@@ -375,6 +379,8 @@ def test_my_proweb_firefox(driver_firefox):
     coworking_page.click_final_book()
     time.sleep(10)
     coworking_page.cancel_booking()
+    time.sleep(3)
+    coworking_page.confirm_cancel_booking()
     time.sleep(3)
 
     main_page = MainPage(driver_firefox)

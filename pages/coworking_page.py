@@ -378,13 +378,26 @@ class CoworkingPage:
     # Отмена созданной брони
     # ---------------------------------------------------------
 
+    # def cancel_booking(self):
+    #     wait = WebDriverWait(self.driver, timeout=10)
+    #
+    #     wait.until(
+    #         EC.element_to_be_clickable(self.cancel_book)
+    #     ).click()
+    #
+    #     wait.until(
+    #         EC.element_to_be_clickable(self.confirm_cancel_book)
+    #     ).click()
+
     def cancel_booking(self):
-        wait = WebDriverWait(self.driver, timeout=10)
+        wait = WebDriverWait(self.driver, 15)
+        button = wait.until(
+            EC.visibility_of_element_located(self.cancel_book)
+        )
+        self.driver.execute_script("arguments[0].click();", button)
 
-        wait.until(
-            EC.element_to_be_clickable(self.cancel_book)
-        ).click()
-
+    def confirm_cancel_booking(self):
+        wait = WebDriverWait(self.driver, 15)
         wait.until(
             EC.element_to_be_clickable(self.confirm_cancel_book)
         ).click()
