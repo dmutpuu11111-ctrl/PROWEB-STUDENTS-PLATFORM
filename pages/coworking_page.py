@@ -48,10 +48,15 @@ class CoworkingPage:
         )
 
         # Кнопка "Выбрать филиал"
+        # self.select_branch_button = (
+        #     By.CSS_SELECTOR,
+        #     "#dialog > div.material-dialog.coworking__branch-dialog > div > "
+        #     "div.material-dialog__window-actions > button:nth-child(2)"
+        # )
+
         self.select_branch_button = (
-            By.CSS_SELECTOR,
-            "#dialog > div.material-dialog.coworking__branch-dialog > div > "
-            "div.material-dialog__window-actions > button:nth-child(2)"
+            By.XPATH,
+            "//button[normalize-space()='Выбрать']"
         )
 
         # Дата
@@ -144,6 +149,18 @@ class CoworkingPage:
             "#dialog > div > div > div.material-dialog__window-actions > button:nth-child(2)"
         )
 
+        # Отменить бронь
+        self.cancel_book = (
+            By.CSS_SELECTOR,
+            "button.baseavatar-error"
+        )
+
+        self.confirm_cancel_book = (
+            By.XPATH,
+            "//button[normalize-space()='Да, отменить']"
+        )
+
+
 
     # ---------------------------------------------------------
     # Коворкинг
@@ -192,14 +209,28 @@ class CoworkingPage:
     # ---------------------------------------------------------
 
     def select_oybek(self):
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, timeout=10)
 
         wait.until(
             EC.element_to_be_clickable(self.oybek)
         ).click()
 
+    def select_coworking(self):
+        wait = WebDriverWait(self.driver, timeout=10)
+
+        coworking = (
+            By.XPATH,
+            "//div[contains(@class, 'list-tile')"
+            " and .//*[contains(normalize-space(), '#Коворкинг')]"
+            "]"
+        )
+
+        wait.until(
+            EC.element_to_be_clickable(coworking)
+        ).click()
+
     def click_select_branch(self):
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, timeout=10)
 
         wait.until(
             EC.element_to_be_clickable(self.select_branch_button)
@@ -341,4 +372,19 @@ class CoworkingPage:
 
         wait.until(
             EC.element_to_be_clickable(self.final_book_button)
+        ).click()
+
+    # ---------------------------------------------------------
+    # Отмена созданной брони
+    # ---------------------------------------------------------
+
+    def cancel_booking(self):
+        wait = WebDriverWait(self.driver, timeout=10)
+
+        wait.until(
+            EC.element_to_be_clickable(self.cancel_book)
+        ).click()
+
+        wait.until(
+            EC.element_to_be_clickable(self.confirm_cancel_book)
         ).click()

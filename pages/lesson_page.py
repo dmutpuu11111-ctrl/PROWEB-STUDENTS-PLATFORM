@@ -87,7 +87,7 @@ class LessonPage:
         ).click()
 
     def watch_video_100_seconds(self):
-        end_time = time.time() + 100
+        end_time = time.time() + 5
 
         while time.time() < end_time:
             video = self.driver.find_element(*self.video)
