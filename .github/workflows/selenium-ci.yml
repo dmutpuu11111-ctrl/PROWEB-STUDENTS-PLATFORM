@@ -8,6 +8,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, edge, firefox]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -22,6 +27,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests
+      - name: Run ${{ matrix.browser }} tests
         run: |
-          pytest tests -v
+          pytest tests -v -k "${{ matrix.browser }}"
